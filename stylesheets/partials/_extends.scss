@@ -1,0 +1,29 @@
+%a-reset{
+text-decoration: none;
+color: inherit;
+}
+
+%max-width{
+    max-width: 1025px;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+%inline-flex{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+%flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+%menu-items{
+    display: inline-block;
+    height: $primary-header;
+    line-height: $primary-header;
+    padding: 0 2*$primary-padding;
+}

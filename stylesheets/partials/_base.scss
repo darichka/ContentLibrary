@@ -1,0 +1,55 @@
+//font
+$font-stack:    Helvetica, sans-serif;
+$primary-font-size: 14px;
+// ----------------------
+//colors-backgrounds
+$footer-background: #e8ddcc;
+$light-grey-color: #7a7d7d;
+$primary-color: #333333;
+$header-color: #92beff;
+$logo-color: #6e6f6e;
+$white-color: #fff; 
+$white-transparent: rgba(255,255,255, 0.5);
+$body-background: url(../img/background.png) no-repeat 0 -270px;
+$blue: #92beff;
+// ----------------------
+//margins-paddings
+$primary-margin: 5px;
+$primary-padding: 10px;
+$primary-header: 60px;
+$primary-header-margin: 50px;
+// ---------------
+// menu
+$dropdown-menu-width: 210px;
+
+//------------
+$transition-all: all 1s;
+$transition-dropdown: all 3s;
+
+//-----------------
+$btn-height: 40px;
+$circle-btn-height: 50px;
+$rubric-size: 200px;
+
+//-----------------
+
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+        -ms-transform: $property;
+            transform: $property;
+  }
+
+@mixin box-sizing($property) {
+    -webkit-box-sizing: $property;
+    -moz-box-sizing: $property;
+    box-sizing: $property;
+}
+
+@mixin background-size($property){
+    -moz-background-size: $property;
+    -webkit-background-size: $property;
+    -o-background-size: $property;
+    background-size: $property;
+}
+  

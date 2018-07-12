@@ -1,0 +1,22 @@
+%primary-button{
+    height: $btn-height;
+    background-color: transparent;
+    color: $primary-color;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    margin: $primary-margin;
+}
+
+%circle-button{
+    @extend %primary-button;
+    height: $circle-btn-height;
+    width: $circle-btn-height;
+    border-radius: $circle-btn-height/2;
+    border: $white-transparent-border;
+}
+
+%circle-button-hover{
+    background-color: $white-transparent;
+    border: $grey-border;
+}

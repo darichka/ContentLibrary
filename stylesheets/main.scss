@@ -1,0 +1,214 @@
+@import "partials/_base.scss";
+@import "partials/_borders.scss";
+@import "partials/_figures.scss";
+@import "partials/_buttons.scss";
+@import "partials/_extends.scss";
+@import "partials/_reset.scss";
+@import "fontawesome/fontawesome.scss";
+@import "fontawesome/fa-solid.scss";
+
+body{
+    font-family: $font-stack;
+    color: $primary-color;
+    font-size: $primary-font-size;
+}
+
+.header{
+    min-height: 500px;
+    background: $body-background;
+    @include background-size(100%);
+}
+
+.header-row, .menu{
+    @extend %inline-flex;
+}
+
+.header-row, .main-content, .footer-content{
+    @extend %max-width;
+}
+
+.header-row{
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: $primary-header-margin auto 0;
+}
+
+.logo{
+    max-width: 400px;
+    padding: 0 $primary-header-margin;
+    span{
+        font-size: 4em;
+        font-weight: 400;
+    }
+}
+
+.menu{
+    font-size: 1.5em;
+    justify-content: space-between;
+    margin-top: $primary-header-margin;
+    li{
+        position: relative;
+    }
+
+    li:hover > .dropdown-menu{
+        display: inline-block;
+    }
+    .menu_item, .dropdown-menu_item{
+        display: inline-block;
+        transition: $transition-all;
+        height: $primary-header;
+        line-height: $primary-header;
+        border-left: $menu-borders;
+        margin-left: $primary-margin;
+        padding: 0 2*$primary-padding;
+    }
+    .dropdown-menu_item{
+        border-top: $green-borders;
+        border-left: none;
+        width: $dropdown-menu-width;
+        // color: $blue;
+        background: $white-transparent; 
+        // display: none;
+    }
+
+    .menu_item:hover, .dropdown-menu_item:hover, .menu_item:active{
+        background: $white-transparent;
+        border-color: $logo-color;
+    }
+}
+.menu :first-child > .menu_item, .menu :first-child > .dropdown-menu_item{
+    border: none;
+}
+
+.dropdown-menu{
+    top: $primary-header;
+    transition: $transition-dropdown;
+    display: none;
+    position: absolute;
+    z-index: 10;
+}
+
+.search-icon{
+    @extend %primary-button;
+    align-self: center;
+    color: $primary-color;
+    margin: $primary-header-margin ;
+    margin-bottom: 0;
+}
+
+.search-wrapper{
+    position: relative;
+    z-index: 10;
+}
+
+.search-line{
+    left: auto;
+    right: 0;
+    min-width: 300px;
+    border: $white-transparent-border;
+    border-radius: $primary-radius;
+    text-align: right;
+    input{
+        border-radius: inherit;
+        width: 100%;
+        line-height: 1.5em;
+        font-size: 1.5em;
+        border: $thin-grey-border;
+    }
+}
+
+.close-btn{
+    @extend %primary-button;
+    padding: 0;
+    height: auto;
+}
+
+.header_slider{
+    width: 100%;
+}
+
+.slider{
+    @extend %inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: 0;
+    bottom: -$primary-header-margin;
+    height: 450px;
+    z-index: 5;
+}
+
+.slider_button{
+    @extend %circle-button;
+    font-size: 2em;
+    transition: $transition-all;
+}
+
+.slider_button:hover{
+    @extend %circle-button-hover;
+}
+
+.slider_box{
+    @extend %max-width;
+    height: 100%;
+    overflow: hidden;
+    figure{
+        text-align: center;
+        display: none;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.content{
+    background-color: $white-color;
+    padding: $primary-header-margin 0;
+    max-height: $primary-header-margin + 600;
+    overflow-y: scroll;
+}
+
+.main-content{
+    @extend %flex-wrap;
+}
+
+.rubric_title-wrapper{
+    @extend %inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: $rubric-size;
+    width: $rubric-size;
+    background: $white-transparent;
+    border: $menu-borders;
+    border-radius: 30px;
+    margin: $primary-header-margin;
+}
+
+.footer{
+    background: $footer-background;
+}
+
+.footer-content{
+    @extend %inline-flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: $primary-margin auto;
+    .socials{
+        span.socials_item{
+            margin: 0 $primary-margin;
+            img{
+            width: 40px;
+            height: 40px;
+            }
+        }
+    }
+    div{
+    padding: $primary-padding;
+    }
+    .footer_logo{
+        img{
+            max-width: 100px;
+            max-height: 100px;
+        }
+    }
+}
+
