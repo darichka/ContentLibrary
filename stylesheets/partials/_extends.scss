@@ -23,7 +23,13 @@ color: inherit;
 
 %menu-items{
     display: inline-block;
-    height: $primary-header;
-    line-height: $primary-header;
+    height: $menu-item-height;
+    line-height: $menu-item-height;
     padding: 0 2*$primary-padding;
+}
+
+%vertical-centering{
+    display: flex;
+    justify-content: center;
+	flex-direction: column;
 }

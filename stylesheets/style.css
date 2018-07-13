@@ -1,7 +1,7 @@
 .close-btn, .search-icon, .slider_button {
   height: 40px;
   background-color: transparent;
-  color: #333333;
+  color: #414141;
   font-size: 1.2em;
   border: none;
   cursor: pointer;
@@ -12,12 +12,12 @@
   height: 50px;
   width: 50px;
   border-radius: 25px;
-  border: 3px rgba(255, 255, 255, 0.5) solid;
+  border: #c0c0c0 solid 3px;
 }
 
 .slider_button:hover {
   background-color: rgba(255, 255, 255, 0.5);
-  border: 3px #6e6f6e solid;
+  border: #414141 solid 3px;
 }
 
 a:hover, a {
@@ -41,6 +41,12 @@ a:hover, a {
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: space-around;
+}
+
+.menu .menu-item a, .menu .dropdown-menu_item a {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 * {
@@ -4743,13 +4749,13 @@ readers do not read off random characters that represent icons */
 
 body {
   font-family: Helvetica, sans-serif;
-  color: #333333;
+  color: #414141;
   font-size: 14px;
 }
 
 .header {
   min-height: 500px;
-  background: url(../img/background.png) no-repeat 0 -270px;
+  background: url(../img/background.png);
   -moz-background-size: 100%;
   -webkit-background-size: 100%;
   -o-background-size: 100%;
@@ -4757,53 +4763,66 @@ body {
 }
 
 .header-row {
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 50px auto 0;
+  justify-content: space-between;
+  align-items: center;
+  height: 170px;
 }
 
 .logo {
   max-width: 400px;
   padding: 0 50px;
 }
-.logo span {
-  font-size: 4em;
+.logo h1 {
+  font-size: 3em;
   font-weight: 400;
 }
 
 .menu {
   font-size: 1.5em;
   justify-content: space-between;
-  margin-top: 50px;
 }
-.menu li {
+.menu .menu-item, .menu .dropdown-menu_item {
   position: relative;
-}
-.menu li:hover > .dropdown-menu {
-  display: inline-block;
-}
-.menu .menu_item, .menu .dropdown-menu_item {
-  display: inline-block;
-  transition: all 1s;
+  display: flex;
+  flex-direction: row;
   height: 60px;
-  line-height: 60px;
-  border-left: 5px solid #92beff;
   margin-left: 5px;
+}
+.menu .menu-item .menu_border, .menu .dropdown-menu_item .menu_border {
+  width: 6px;
+  background: #7743e1;
+  border-radius: 3px;
+  height: 100%;
+  transition: all 1s;
+}
+.menu .menu-item a, .menu .dropdown-menu_item a {
+  height: 100%;
   padding: 0 20px;
+  transition: all 1s;
+}
+.menu .menu-item a:hover, .menu .menu-item a:active, .menu .dropdown-menu_item a:hover, .menu .dropdown-menu_item a:active {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: #6e6f6e;
+  color: #7743e1;
 }
 .menu .dropdown-menu_item {
-  border-top: 5px solid #92beff;
-  border-left: none;
+  flex-direction: column;
   width: 210px;
   background: rgba(255, 255, 255, 0.5);
 }
-.menu .menu_item:hover, .menu .dropdown-menu_item:hover, .menu .menu_item:active {
-  background: rgba(255, 255, 255, 0.5);
-  border-color: #6e6f6e;
+.menu .dropdown-menu_item .menu_border {
+  width: 100%;
+  height: 6px;
+}
+.menu .menu-item:hover > .dropdown-menu {
+  display: inline-block;
+}
+.menu .dropdown-menu {
+  align-self: flex-start;
 }
 
-.menu :first-child > .menu_item, .menu :first-child > .dropdown-menu_item {
-  border: none;
+.menu-item:hover > .menu_border, .dropdown-menu_item:hover > .menu_border {
+  background: #414141;
 }
 
 .dropdown-menu {
@@ -4816,9 +4835,9 @@ body {
 
 .search-icon {
   align-self: center;
-  color: #333333;
-  margin: 50px;
+  color: #414141;
   margin-bottom: 0;
+  width: 50px;
 }
 
 .search-wrapper {
@@ -4833,6 +4852,9 @@ body {
   border: 3px rgba(255, 255, 255, 0.5) solid;
   border-radius: 3px;
   text-align: right;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  padding-top: 0;
 }
 .search-line input {
   border-radius: inherit;
@@ -4869,6 +4891,8 @@ body {
 .slider_box {
   height: 100%;
   overflow: hidden;
+  border-radius: 30px;
+  border: #c0c0c0 solid 3px;
 }
 .slider_box figure {
   text-align: center;
@@ -4890,13 +4914,13 @@ body {
   height: 200px;
   width: 200px;
   background: rgba(255, 255, 255, 0.5);
-  border: 5px solid #92beff;
+  border: 5px solid #7743e1;
   border-radius: 30px;
   margin: 50px;
 }
 
 .footer {
-  background: #e8ddcc;
+  background: #d9d9d9;
 }
 
 .footer-content {
@@ -4914,9 +4938,14 @@ body {
 .footer-content div {
   padding: 10px;
 }
-.footer-content .footer_logo img {
-  max-width: 100px;
-  max-height: 100px;
+.footer-content .footer_logo {
+  padding: 10px;
+}
+.footer-content .footer_logo h1 {
+  font-size: 1.5em;
+}
+.footer-content .footer_logo h3 {
+  font-size: 1.1em;
 }
 
 /*# sourceMappingURL=style.css.map */

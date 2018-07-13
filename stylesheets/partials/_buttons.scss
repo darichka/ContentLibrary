@@ -13,10 +13,10 @@
     height: $circle-btn-height;
     width: $circle-btn-height;
     border-radius: $circle-btn-height/2;
-    border: $white-transparent-border;
+    border: $light solid $primary-border;
 }
 
 %circle-button-hover{
     background-color: $white-transparent;
-    border: $grey-border;
+    border: $primary-color solid $primary-border;
 }

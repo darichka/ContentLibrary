@@ -2,21 +2,38 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-font-size: 14px;
 // ----------------------
-//colors-backgrounds
-$footer-background: #e8ddcc;
+//colors
+$primary-color: #414141;
+$medium: #6e6e6e;
+$light: #c0c0c0;
+$very-light: #d9d9d9;
+$bright-dark: #5915e3;
+$bright: #7743e1;
+$bright-light: #a78ddc; 
+
+// border-radius
+$big-border-radius: 30px;
+$medium-border-radius: 15px;
+$small-border-radius: 3px;
+
+// border
+$thick-border: 6px;
+$thin-border: 1px;
+$primary-border: 3px;
+
+$footer-background: #030303;
 $light-grey-color: #7a7d7d;
-$primary-color: #333333;
 $header-color: #92beff;
 $logo-color: #6e6f6e;
 $white-color: #fff; 
 $white-transparent: rgba(255,255,255, 0.5);
-$body-background: url(../img/background.png) no-repeat 0 -270px;
+$dark-transparent: rgba(0,0,0, 0.4);
+$header-background: url(../img/background.png);
 $blue: #92beff;
 // ----------------------
 //margins-paddings
 $primary-margin: 5px;
 $primary-padding: 10px;
-$primary-header: 60px;
 $primary-header-margin: 50px;
 // ---------------
 // menu
@@ -26,10 +43,12 @@ $dropdown-menu-width: 210px;
 $transition-all: all 1s;
 $transition-dropdown: all 3s;
 
-//-----------------
+//sizing
 $btn-height: 40px;
 $circle-btn-height: 50px;
 $rubric-size: 200px;
+$header-height: 170px;
+$menu-item-height: 60px;
 
 //-----------------
 

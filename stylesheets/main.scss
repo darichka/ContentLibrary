@@ -15,7 +15,7 @@ body{
 
 .header{
     min-height: 500px;
-    background: $body-background;
+    background: $header-background;
     @include background-size(100%);
 }
 
@@ -28,16 +28,16 @@ body{
 }
 
 .header-row{
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: $primary-header-margin auto 0;
+    justify-content: space-between;
+    align-items: center;
+    height: $header-height;
 }
 
 .logo{
     max-width: 400px;
     padding: 0 $primary-header-margin;
-    span{
-        font-size: 4em;
+    h1{
+        font-size: 3em;
         font-weight: 400;
     }
 }
@@ -45,43 +45,58 @@ body{
 .menu{
     font-size: 1.5em;
     justify-content: space-between;
-    margin-top: $primary-header-margin;
-    li{
+    .menu-item, .dropdown-menu_item{
         position: relative;
-    }
-
-    li:hover > .dropdown-menu{
-        display: inline-block;
-    }
-    .menu_item, .dropdown-menu_item{
-        display: inline-block;
-        transition: $transition-all;
-        height: $primary-header;
-        line-height: $primary-header;
-        border-left: $menu-borders;
+        display: flex;
+        flex-direction: row;
+        height: $menu-item-height;
         margin-left: $primary-margin;
-        padding: 0 2*$primary-padding;
-    }
-    .dropdown-menu_item{
-        border-top: $green-borders;
-        border-left: none;
-        width: $dropdown-menu-width;
-        // color: $blue;
-        background: $white-transparent; 
-        // display: none;
-    }
+        .menu_border{
+            width : $thick-border;
+            background: $bright;
+            border-radius: $small-border-radius;
+            height: 100%;
+            transition: $transition-all;
+        }
+        a{
+            @extend %vertical-centering;
+            height: 100%;
+            padding: 0 2*$primary-padding;
+            transition: $transition-all;
+        }
 
-    .menu_item:hover, .dropdown-menu_item:hover, .menu_item:active{
+        a:hover, a:active{
         background: $white-transparent;
         border-color: $logo-color;
+        color: $bright;
+        }
+    }
+    .dropdown-menu_item{
+        flex-direction: column;
+        width: $dropdown-menu-width;
+        background: $white-transparent;
+
+        .menu_border{
+            width: 100%;
+            height: $thick-border;
+        }
+    }
+
+    .menu-item:hover > .dropdown-menu{
+        display: inline-block;
+    }
+
+    .dropdown-menu{
+        align-self: flex-start;
     }
 }
-.menu :first-child > .menu_item, .menu :first-child > .dropdown-menu_item{
-    border: none;
+.menu-item:hover > .menu_border, .dropdown-menu_item:hover > .menu_border{
+    background: $primary-color;
 }
 
+
 .dropdown-menu{
-    top: $primary-header;
+    top: $menu-item-height;
     transition: $transition-dropdown;
     display: none;
     position: absolute;
@@ -92,8 +107,8 @@ body{
     @extend %primary-button;
     align-self: center;
     color: $primary-color;
-    margin: $primary-header-margin ;
     margin-bottom: 0;
+    width: 50px;
 }
 
 .search-wrapper{
@@ -108,6 +123,9 @@ body{
     border: $white-transparent-border;
     border-radius: $primary-radius;
     text-align: right;
+    background: $dark-transparent;
+    padding: $primary-padding;
+    padding-top: 0;
     input{
         border-radius: inherit;
         width: 100%;
@@ -152,6 +170,8 @@ body{
     @extend %max-width;
     height: 100%;
     overflow: hidden;
+    border-radius: $big-border-radius;
+    border: $light solid $primary-border;
     figure{
         text-align: center;
         display: none;
@@ -178,13 +198,13 @@ body{
     height: $rubric-size;
     width: $rubric-size;
     background: $white-transparent;
-    border: $menu-borders;
+    border: $brigth-borders;
     border-radius: 30px;
     margin: $primary-header-margin;
 }
 
 .footer{
-    background: $footer-background;
+    background: $very-light;
 }
 
 .footer-content{
@@ -205,10 +225,13 @@ body{
     padding: $primary-padding;
     }
     .footer_logo{
-        img{
-            max-width: 100px;
-            max-height: 100px;
+        padding: $primary-padding;
+        h1{
+           font-size: 1.5em;
         }
+        h3{
+            font-size: 1.1em;
+         }
     }
 }
 
