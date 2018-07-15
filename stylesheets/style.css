@@ -26,7 +26,6 @@ a:hover, a {
 }
 
 .slider_box, .header-row, .main-content, .footer-content {
-  max-width: 1025px;
   width: 80vw;
   margin: 0 auto;
 }
@@ -4753,9 +4752,12 @@ body {
   font-size: 14px;
 }
 
+header {
+  background: url(../img/background.png);
+}
+
 .header {
   min-height: 500px;
-  background: url(../img/background.png);
   -moz-background-size: 100%;
   -webkit-background-size: 100%;
   -o-background-size: 100%;
@@ -4891,14 +4893,21 @@ body {
 .slider_box {
   height: 100%;
   overflow: hidden;
-  border-radius: 30px;
-  border: #c0c0c0 solid 3px;
+  position: relative;
 }
 .slider_box figure {
   text-align: center;
-  display: none;
+  position: absolute;
+  left: 100%;
+  border-radius: 3px;
+  width: 350px;
+  height: 450px;
+  overflow: hidden;
+  display: inline-block;
+}
+.slider_box figure img {
   width: 100%;
-  margin: 0 auto;
+  height: 100%;
 }
 
 .content {
