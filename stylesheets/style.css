@@ -16,7 +16,7 @@
 }
 
 .slider_button:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   border: #414141 solid 3px;
 }
 
@@ -30,7 +30,7 @@ a:hover, a {
   margin: 0 auto;
 }
 
-.footer-content, .rubric_title-wrapper, .slider, .header-row, .menu {
+.footer-content, .rubric_title-wrapper a, .rubric, .slider, .header-row, .menu {
   display: flex;
   flex-wrap: nowrap;
 }
@@ -4792,7 +4792,7 @@ header {
 }
 .menu .menu-item .menu_border, .menu .dropdown-menu_item .menu_border {
   width: 6px;
-  background: #7743e1;
+  background: #55b6b6;
   border-radius: 3px;
   height: 100%;
   transition: all 1s;
@@ -4803,14 +4803,18 @@ header {
   transition: all 1s;
 }
 .menu .menu-item a:hover, .menu .menu-item a:active, .menu .dropdown-menu_item a:hover, .menu .dropdown-menu_item a:active {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   border-color: #6e6f6e;
-  color: #7743e1;
+  color: #d9d9d9;
+  border-radius: 3px;
 }
 .menu .dropdown-menu_item {
   flex-direction: column;
   width: 210px;
-  background: rgba(255, 255, 255, 0.5);
+  color: #d9d9d9;
+}
+.menu .dropdown-menu_item a {
+  background: rgba(0, 0, 0, 0.4);
 }
 .menu .dropdown-menu_item .menu_border {
   width: 100%;
@@ -4819,15 +4823,13 @@ header {
 .menu .menu-item:hover > .dropdown-menu {
   display: inline-block;
 }
-.menu .dropdown-menu {
-  align-self: flex-start;
-}
 
 .menu-item:hover > .menu_border, .dropdown-menu_item:hover > .menu_border {
   background: #414141;
 }
 
 .dropdown-menu {
+  align-self: flex-start;
   top: 60px;
   transition: all 3s;
   display: none;
@@ -4851,7 +4853,7 @@ header {
   left: auto;
   right: 0;
   min-width: 300px;
-  border: 3px rgba(255, 255, 255, 0.5) solid;
+  border: 3px rgba(255, 255, 255, 0.3) solid;
   border-radius: 3px;
   text-align: right;
   background: rgba(0, 0, 0, 0.4);
@@ -4908,24 +4910,95 @@ header {
 .slider_box figure img {
   width: 100%;
   height: 100%;
+  position: absolute;
+  z-index: 5;
+  left: 0;
+}
+.slider_box figure .slider_caption {
+  position: absolute;
+  top: 60%;
+  height: 40%;
+  width: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 1.3em;
+  color: #d9d9d9;
+}
+.slider_box figure .slider_caption .figure-caption-header {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  width: 100%;
+  background: #46f8c8;
+  color: #414141;
+}
+.slider_box figure .slider_caption p {
+  padding: 10px;
+}
+.slider_box figure img:hover ~ .slider_caption, .slider_box figure .slider_caption:hover {
+  background: rgba(0, 0, 0, 0.7);
+  top: 50%;
+  height: 50%;
+  cursor: pointer;
 }
 
 .content {
   background-color: #fff;
-  padding: 50px 0;
-  max-height: 650px;
-  overflow-y: scroll;
+  padding: 100px 0 50px;
+}
+
+.rubric {
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+  border: 3px #7a7d7d solid;
+  border-radius: 3px;
+  margin: 5px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.4);
+}
+.rubric img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
 }
 
 .rubric_title-wrapper {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  color: #d9d9d9;
+}
+.rubric_title-wrapper h2 {
+  text-transform: uppercase;
+  font-size: 1.8em;
+}
+.rubric_title-wrapper a {
   align-items: center;
   justify-content: center;
-  height: 200px;
-  width: 200px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 5px solid #7743e1;
-  border-radius: 30px;
-  margin: 50px;
+  height: 100%;
+  width: 100%;
+}
+
+.rubric:hover > .rubric_title-wrapper {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.rubric:hover h2 {
+  font-size: 2em;
+}
+
+.rubric:hover {
+  border-color: #55b6b6;
 }
 
 .footer {

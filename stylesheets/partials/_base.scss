@@ -7,9 +7,9 @@ $primary-color: #414141;
 $medium: #6e6e6e;
 $light: #c0c0c0;
 $very-light: #d9d9d9;
-$bright-dark: #5915e3;
-$bright: #7743e1;
-$bright-light: #a78ddc; 
+$bright-dark: #0b9082;
+$bright: #55b6b6;
+$bright-light: #46f8c8; 
 
 // border-radius
 $big-border-radius: 30px;
@@ -26,8 +26,9 @@ $light-grey-color: #7a7d7d;
 $header-color: #92beff;
 $logo-color: #6e6f6e;
 $white-color: #fff; 
-$white-transparent: rgba(255,255,255, 0.5);
+$white-transparent: rgba(255,255,255, 0.3);
 $dark-transparent: rgba(0,0,0, 0.4);
+$darker-transparent: rgba(0,0,0, 0.7);
 $header-background: url(../img/background.png);
 $blue: #92beff;
 // ----------------------
@@ -35,6 +36,7 @@ $blue: #92beff;
 $primary-margin: 5px;
 $primary-padding: 10px;
 $primary-header-margin: 50px;
+$primary-content-padding: 7px;
 // ---------------
 // menu
 $dropdown-menu-width: 210px;
@@ -47,9 +49,10 @@ $transition-dropdown: all 3s;
 //sizing
 $btn-height: 40px;
 $circle-btn-height: 50px;
-$rubric-size: 200px;
+$rubric-size: 300px;
 $header-height: 170px;
 $menu-item-height: 60px;
+$base-font-size: 1em;
 
 //-----------------
 
