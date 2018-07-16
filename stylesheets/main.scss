@@ -59,13 +59,13 @@ header{
             background: $bright;
             border-radius: $small-border-radius;
             height: 100%;
-            transition: $transition-all;
+            transition: $transition-menu;
         }
         a{
             @extend %vertical-centering;
             height: 100%;
             padding: 0 2*$primary-padding;
-            transition: $transition-all;
+            transition: $transition-menu;
         }
 
         a:hover, a:active{
@@ -228,7 +228,11 @@ header{
 
 
 .content{
-    background-color: $white-color;
+    padding: $primary-header-margin 0 $primary-header-margin;
+    width: 100%;
+}
+
+#main-content{
     padding: 2*$primary-header-margin 0 $primary-header-margin;
 }
 
@@ -324,3 +328,29 @@ header{
     }
 }
 
+// styles for contacts
+
+.contacts{
+    @extend %inline-flex;
+    @extend %max-width;
+    justify-content: space-around;
+    font-size: 1.2*$base-font-size;
+    p{
+        text-align: center;
+        padding: $primary-padding;
+    }
+    table{
+        margin: 0 auto;
+        .adress-rubrics{
+            font-size: 0.9*$base-font-size;
+            color: $light;
+        }
+        td{
+            padding: $primary-margin;
+        }
+    }
+}
+.map{
+    @extend %max-width;
+    height: 400px;    
+}

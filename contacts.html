@@ -4,7 +4,7 @@
 	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
-	<title>Content Library</title>
+    <title>Content Library</title>
 	<link rel="stylesheet" type="text/css" href="stylesheets/style.css"/> 
 	<link rel="SHORTCUT ICON" href="img/favicon.png" type="image/png">
 </head>
@@ -70,13 +70,76 @@
             </section>
     </header>
     <section class="content">
-        <h2 content="title"></h2>
-        <div class="filteres"></div>
-        <div class="sorting"></div>
-        <div class="breadcrums"></div>
-        <div class="result"></div>
+        <div class="contacts">
+            <div>
+                <p>In case you have ideas how to improve the library please contact us: <br>
+                    support@domenadress.com</p>
+                <p>If you'd like to become an autor please e-mail to <br>
+                    newcontent@domenadress.com</p>
+            </div>
+           <div>
+                <p>Our office:</p>
+                <table>
+                    <tr>
+                        <td class="adress-rubrics">Street</td>
+                        <td>1257  Primrose Lane</td>
+                    </tr>
+                    <tr>
+                        <td class="adress-rubrics">City</td>
+                        <td>Fitchburg</td>
+                    </tr>
+                    <tr>
+                        <td class="adress-rubrics">State</td>
+                        <td>WI</td>
+                    </tr>
+                    <tr>
+                        <td class="adress-rubrics">Zip-code</td>
+                        <td>53719</td>
+                    </tr>
+                </table>
+           </div>
+        </div>
+        <div class="map" id="map"></div>
     </section>
-    <footer>
-        <script src="js/common.js"></script>
+    <footer class="footer">
+        <div class="footer-content">
+                <div class="socials">
+                    <span class="socials_item">
+                        <a href="" class="social_link">
+                            <img src="img/socials/facebook.png" alt=""/>
+                        </a>
+                    </span>
+                    <span class="socials_item">
+                        <a href="" class="social_link">
+                            <img src="img/socials/instagram.png" alt="instagram"/>
+                        </a>
+                    </span>
+                    <span class="socials_item">
+                        <a href="" class="social_link">
+                            <img src="img/socials/pinterest.png" alt="pinterest">
+                        </a>
+                    </span>
+                    <span class="socials_item">
+                        <a href="" class="social_link">
+                            <img src="img/socials/twitter.png" alt="twitter">
+                        </a>
+                    </span>
+                </div>
+                <div class="autor">
+                    <p>&copy; Created by Daria Katiushchenko</p>
+                </div>
+                <figure class="logo footer_logo">
+                    <!-- <img src="img\logo.png" alt="Logo"/> -->
+                    <h1>
+                        Storehouse
+                    </h1>
+                    <h3>
+                        Everething about science
+                    </h3>
+                </figure>
+            </div>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRCQlW7yHC_s4p0mHUhQ80zsxpl-EMFlQ&callback=initMap"></script>
+        <script src="js/common.js" defer></script>
     </footer>
 </body>
+
