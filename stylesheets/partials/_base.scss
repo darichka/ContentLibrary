@@ -1,42 +1,42 @@
 //font
 $font-stack:    Helvetica, sans-serif;
 $primary-font-size: 14px;
+$base-font-size: 1em;
 // ----------------------
 //colors
 $primary-color: #414141;
-$medium: #6e6e6e;
+$medium: #6e6f6e;
 $light: #c0c0c0;
 $very-light: #d9d9d9;
 $bright-dark: #0b9082;
 $bright: #55b6b6;
 $bright-light: #46f8c8; 
+$white-transparent: rgba(255,255,255, 0.3);
+$dark-transparent: rgba(0,0,0, 0.4);
+$darker-transparent: rgba(0,0,0, 0.7);
+$header-background: url(../img/background.png);
 
 // border-radius
 $big-border-radius: 30px;
 $medium-border-radius: 15px;
-$small-border-radius: 3px;
+$primary-radius: 3px;
 
 // border
 $thick-border: 6px;
 $thin-border: 1px;
 $primary-border: 3px;
-
-$footer-background: #030303;
-$light-grey-color: #7a7d7d;
-$header-color: #92beff;
-$logo-color: #6e6f6e;
-$white-color: #fff; 
-$white-transparent: rgba(255,255,255, 0.3);
-$dark-transparent: rgba(0,0,0, 0.4);
-$darker-transparent: rgba(0,0,0, 0.7);
-$header-background: url(../img/background.png);
-$blue: #92beff;
+$brigth-borders: 5px solid $bright;
+$white-transparent-border: 3px $white-transparent solid;
+$thin-grey-border: 1px $light solid;
+$light-grey-border: 3px $light solid;
+$grey-border: 3px $medium solid;
 // ----------------------
 //margins-paddings
 $primary-margin: 5px;
 $primary-padding: 10px;
-$primary-header-margin: 50px;
-$primary-content-padding: 7px;
+$header-margin: 50px;
+$content-padding: 7px;
+$left-sub-menu-margin: 15px;
 // ---------------
 // menu
 $dropdown-menu-width: 210px;
@@ -44,8 +44,6 @@ $dropdown-menu-width: 210px;
 //------------
 $transition-all: all 1s;
 $transition-menu: all 0.5s;
-$transition-slider: all 3s;
-$transition-dropdown: all 3s;
 
 //sizing
 $btn-height: 40px;
@@ -53,8 +51,8 @@ $circle-btn-height: 50px;
 $rubric-size: 300px;
 $header-height: 170px;
 $menu-item-height: 60px;
-$base-font-size: 1em;
-
+$left-menu-btn: 30px;
+$left-menu-wigth: 120px; 
 //-----------------
 
 

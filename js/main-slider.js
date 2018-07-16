@@ -15,15 +15,12 @@ startInterval.start = Date.now();
 
 function startInterval(pause = 0){
    var duration = 5000 - pause;
-   console.log('duration :' + duration);
    intervalId = setInterval(mySlider.slideLeft, duration);
    startInterval.start = Date.now();
-   console.log(Date.now());
 }
 
 function pauseInterval(){
     pauseInterval.dur = Date.now() - startInterval.start;
-    console.log(pauseInterval.dur);
     clearInterval(intervalId);
 }
 

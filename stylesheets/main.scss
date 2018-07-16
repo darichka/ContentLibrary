@@ -1,5 +1,4 @@
 @import "partials/_base.scss";
-@import "partials/_borders.scss";
 @import "partials/_figures.scss";
 @import "partials/_buttons.scss";
 @import "partials/_extends.scss";
@@ -38,7 +37,7 @@ header{
 
 .logo{
     max-width: 400px;
-    padding: 0 $primary-header-margin;
+    padding: 0 $header-margin;
     h1{
         font-size: 3em;
         font-weight: 400;
@@ -57,7 +56,7 @@ header{
         .menu_border{
             width : $thick-border;
             background: $bright;
-            border-radius: $small-border-radius;
+            border-radius: $primary-radius;
             height: 100%;
             transition: $transition-menu;
         }
@@ -70,9 +69,9 @@ header{
 
         a:hover, a:active{
         background: $darker-transparent;
-        border-color: $logo-color;
+        border-color: $medium;
         color: $very-light;
-        border-radius: $small-border-radius;
+        border-radius: $primary-radius;
         }
     }
     .dropdown-menu_item{
@@ -102,7 +101,6 @@ header{
 .dropdown-menu{
     align-self: flex-start;
     top: $menu-item-height;
-    transition: $transition-dropdown;
     display: none;
     position: absolute;
     z-index: 10;
@@ -156,14 +154,14 @@ header{
     align-items: center;
     position: relative;
     left: 0;
-    bottom: -$primary-header-margin;
+    bottom: -$header-margin;
     height: 450px;
     z-index: 5;
 }
 
 .slider_button{
     @extend %circle-button;
-    font-size: 2em;
+    font-size: 2*$base-font-size;
     transition: $transition-all;
 }
 
@@ -225,15 +223,13 @@ header{
     }
 }
 
-
-
 .content{
-    padding: $primary-header-margin 0 $primary-header-margin;
+    padding: $header-margin 0 $header-margin;
     width: 100%;
 }
 
 #main-content{
-    padding: 2*$primary-header-margin 0 $primary-header-margin;
+    padding: 2*$header-margin 0 $header-margin;
 }
 
 .main-content{
@@ -247,7 +243,7 @@ header{
     height: $rubric-size;
     width: $rubric-size;
     border: $light-grey-border;
-    border-radius: $small-border-radius;
+    border-radius: $primary-radius;
     margin: $primary-margin;
     position: relative;
     overflow: hidden;
@@ -331,10 +327,8 @@ header{
 // styles for contacts
 
 .contacts{
-    @extend %inline-flex;
     @extend %max-width;
-    justify-content: space-around;
-    font-size: 1.2*$base-font-size;
+    font-size: $base-font-size;
     p{
         text-align: center;
         padding: $primary-padding;
@@ -353,4 +347,36 @@ header{
 .map{
     @extend %max-width;
     height: 400px;    
+}
+
+// styles for library-pages
+
+.content-library{
+    @extend %max-width;
+    @extend %inline-flex;
+    align-items: strech;
+    border: $brigth-borders;
+    height: 700px;
+}
+
+.lib_wrapper{
+    @extend %inline-flex;
+    flex-wrap: wrap;
+}
+
+.left-menu{
+    width: $left-menu-wigth;
+    height: 100%;
+    align-self: stretch;
+}
+
+.sorting{
+    height: 60px;
+}
+.breadcrums{
+    height: 30px;
+}
+
+.hidden{
+    display: none;
 }

@@ -69,12 +69,80 @@
                 </div>
             </section>
     </header>
-    <section class="content">
-        <h2 content="title"></h2>
-        <div class="filteres"></div>
-        <div class="sorting"></div>
-        <div class="breadcrums"></div>
-        <div class="result"></div>
+    <section class="content-library">
+        <div class="filteres left-menu">
+            <button id="all">
+                All
+                <span class="count"></span>
+            </button>
+            <ul>
+                <li class="filt_btn">
+                    <span>
+                        <i class="fas fa-angle-down"></i>
+                        <i class="fas fa-angle-right hidden"></i>
+                    </span>
+                    <span>Search by rubric</span>
+                    <ul class="dropdown-left-menu">
+                        <li class="dropdown-left-item">
+                            Robotics
+                            <span class="count"></span>
+                        </li>
+                        <li class="dropdown-left-item">
+                            Astronomy
+                            <span class="count"></span>
+                        </li>
+                        <li class="dropdown-left-item">
+                            Medicine
+                            <span class="count"></span>
+                        </li>
+                        <li class="dropdown-left-item">
+                            Biology
+                            <span class="count"></span>
+                        </li>
+                        <li class="dropdown-left-item">
+                            Physics
+                            <span class="count"></span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="filt_btn">
+                    <span>
+                        <i class="fas fa-angle-down"></i>
+                        <i class="fas fa-angle-right hidden"></i>
+                    </span>
+                    <span>Search by topic</span>
+                </li>
+                <li class="filt_btn">
+                    <span>
+                        <i class="fas fa-angle-down"></i>
+                        <i class="fas fa-angle-right hidden"></i>
+                    </span>
+                    <span>Search by author</span>
+                </li>
+                <li class="filt_btn">
+                    <span>
+                        <i class="fas fa-angle-down"></i>
+                        <i class="fas fa-angle-right hidden"></i>
+                    </span>
+                    <span>Search for publishing houses</span>
+                </li>
+            </ul>
+        </div>
+        <div class="lib_wrapper">
+            <div class="sorting">
+                <button class="sort_btn">Sort by date</button>
+                <button class="sort_btn">Sort by author</button>
+            </div>
+            <div class="breadcrums">
+                <span>Physics</span>
+                <span><i class="fas fa-angle-right"></i></span>
+                <span></span>
+            </div>
+            <div class="result">
+                <h2 content="title" id="lib_title">
+                </h2>
+            </div>
+        </div>
     </section>
     <footer>
         <script src="js/common.js"></script>

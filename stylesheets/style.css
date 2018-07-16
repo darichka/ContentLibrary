@@ -25,12 +25,12 @@ a:hover, a {
   color: inherit;
 }
 
-.map, .contacts, .slider_box, .header-row, .main-content, .footer-content {
+.content-library, .map, .contacts, .slider_box, .header-row, .main-content, .footer-content {
   width: 80vw;
   margin: 0 auto;
 }
 
-.contacts, .footer-content, .rubric_title-wrapper a, .rubric, .slider, .header-row, .menu {
+.lib_wrapper, .content-library, .footer-content, .rubric_title-wrapper a, .rubric, .slider, .header-row, .menu {
   display: flex;
   flex-wrap: nowrap;
 }
@@ -4831,7 +4831,6 @@ header {
 .dropdown-menu {
   align-self: flex-start;
   top: 60px;
-  transition: all 3s;
   display: none;
   position: absolute;
   z-index: 10;
@@ -4865,7 +4864,7 @@ header {
   width: 100%;
   line-height: 1.5em;
   font-size: 1.5em;
-  border: 1px #7a7d7d solid;
+  border: 1px #c0c0c0 solid;
 }
 
 .close-btn {
@@ -4956,7 +4955,7 @@ header {
   justify-content: center;
   height: 300px;
   width: 300px;
-  border: 3px #7a7d7d solid;
+  border: 3px #c0c0c0 solid;
   border-radius: 3px;
   margin: 5px;
   position: relative;
@@ -5035,8 +5034,7 @@ header {
 }
 
 .contacts {
-  justify-content: space-around;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 .contacts p {
   text-align: center;
@@ -5055,6 +5053,34 @@ header {
 
 .map {
   height: 400px;
+}
+
+.content-library {
+  align-items: strech;
+  border: 5px solid #55b6b6;
+  height: 700px;
+}
+
+.lib_wrapper {
+  flex-wrap: wrap;
+}
+
+.left-menu {
+  width: 120px;
+  height: 100%;
+  align-self: stretch;
+}
+
+.sorting {
+  height: 60px;
+}
+
+.breadcrums {
+  height: 30px;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
