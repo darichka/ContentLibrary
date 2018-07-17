@@ -14,6 +14,7 @@ $bright-light: #46f8c8;
 $white-transparent: rgba(255,255,255, 0.3);
 $dark-transparent: rgba(0,0,0, 0.4);
 $darker-transparent: rgba(0,0,0, 0.7);
+$grey-transparent: rgba(125,125,125,0.5);
 $header-background: url(../img/background.png);
 
 // border-radius
@@ -24,10 +25,11 @@ $primary-radius: 3px;
 // border
 $thick-border: 6px;
 $thin-border: 1px;
-$primary-border: 3px;
+$primary-border: 3px $light solid;
 $brigth-borders: 5px solid $bright;
 $white-transparent-border: 3px $white-transparent solid;
 $thin-grey-border: 1px $light solid;
+$bright-border: 2px $bright-dark solid;
 $light-grey-border: 3px $light solid;
 $grey-border: 3px $medium solid;
 // ----------------------
@@ -48,11 +50,13 @@ $transition-menu: all 0.5s;
 //sizing
 $btn-height: 40px;
 $circle-btn-height: 50px;
+$small-circle-btn-height: 20px;
 $rubric-size: 300px;
 $header-height: 170px;
 $menu-item-height: 60px;
-$left-menu-btn: 30px;
-$left-menu-wigth: 120px; 
+$left-menu-btn-height: 35px;
+$left-menu-wigth: 200px;
+$primary-line-height: 40px; 
 //-----------------
 
 

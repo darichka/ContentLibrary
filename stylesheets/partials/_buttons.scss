@@ -16,6 +16,14 @@
     border: $light solid $primary-border;
 }
 
+%small-circle-button{
+    @extend %primary-button;
+    height: $small-circle-btn-height;
+    width: $small-circle-btn-height;
+    border-radius: $small-circle-btn-height/2;
+    border: $thin-grey-border;
+}
+
 %circle-button-hover{
     background-color: $white-transparent;
     border: $primary-color solid $primary-border;
@@ -25,10 +33,20 @@
 
 }
 
-%filter-buttons{
-    
+%left-menu-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    min-height: $left-menu-btn-height;
+    padding: 0 $primary-padding;
+    width: 100%;
+    border-bottom: $bright-border;
+    vertical-align: middle;
 }
 
-%filter-item-buttons{
-    
+%left-menu-buttons-dropdown{
+    @extend %left-menu-buttons;
+    padding-left: $primary-padding + $left-sub-menu-margin;
+    border-bottom: $thin-grey-border;
+    min-height: $left-menu-btn-height/2;
 }

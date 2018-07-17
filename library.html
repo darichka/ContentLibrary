@@ -71,76 +71,92 @@
     </header>
     <section class="content-library">
         <div class="filteres left-menu">
-            <button id="all">
-                All
+            <div id="all" class="left-menu-button">
+                <span>All</span>
                 <span class="count"></span>
-            </button>
-            <ul>
-                <li class="filt_btn">
-                    <span>
-                        <i class="fas fa-angle-down"></i>
-                        <i class="fas fa-angle-right hidden"></i>
-                    </span>
-                    <span>Search by rubric</span>
+            </div>
+            <ul id="left-menu-list">
+                <li class="filter-item">
+                    <div class="filter-btn left-menu-button">
+                        <span>
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                        <span class="title-btn">Search by rubric</span>
+                    </div>
                     <ul class="dropdown-left-menu">
-                        <li class="dropdown-left-item">
+                        <li class="dropdown-left-item left-menu-button">
                             Robotics
                             <span class="count"></span>
                         </li>
-                        <li class="dropdown-left-item">
+                        <li class="dropdown-left-item left-menu-button">
                             Astronomy
                             <span class="count"></span>
                         </li>
-                        <li class="dropdown-left-item">
+                        <li class="dropdown-left-item left-menu-button">
                             Medicine
                             <span class="count"></span>
                         </li>
-                        <li class="dropdown-left-item">
+                        <li class="dropdown-left-item left-menu-button">
                             Biology
                             <span class="count"></span>
                         </li>
-                        <li class="dropdown-left-item">
+                        <li class="dropdown-left-item left-menu-button">
                             Physics
                             <span class="count"></span>
                         </li>
                     </ul>
                 </li>
-                <li class="filt_btn">
-                    <span>
-                        <i class="fas fa-angle-down"></i>
-                        <i class="fas fa-angle-right hidden"></i>
-                    </span>
-                    <span>Search by topic</span>
+                <li class="filter-btn">
+                    <div class="filter-btn left-menu-button">
+                        <span>
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                        <span class="title-btn">Search by topic</span>
+                    </div>
                 </li>
-                <li class="filt_btn">
-                    <span>
-                        <i class="fas fa-angle-down"></i>
-                        <i class="fas fa-angle-right hidden"></i>
-                    </span>
-                    <span>Search by author</span>
+                <li class="filter-btn">
+                    <div class="filter-btn left-menu-button">
+                        <span>
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                        <span class="title-btn">Search by author</span>
+                    </div>
                 </li>
-                <li class="filt_btn">
-                    <span>
-                        <i class="fas fa-angle-down"></i>
-                        <i class="fas fa-angle-right hidden"></i>
-                    </span>
-                    <span>Search for publishing houses</span>
+                <li class="filter-btn">
+                    <div class="filter-btn left-menu-button">
+                        <span>
+                            <i class="fas fa-angle-down"></i>
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                        <span class="title-btn">Search by publishing houses</span>
+                    </div>
                 </li>
             </ul>
         </div>
-        <div class="lib_wrapper">
-            <div class="sorting">
-                <button class="sort_btn">Sort by date</button>
-                <button class="sort_btn">Sort by author</button>
+        <div class="result">
+            <div class="result_header">
+                <div class="breadcrums">
+                    <span></span>
+                    <span><i class="fas fa-angle-right"></i></span>
+                    <span></span>
+                </div>
+                <div class="sorting">
+                    <p>
+                        Sort by
+                    </p>
+                    <ul class="dropdown-menu__sorting">
+                        <li class="dropdown-menu_item__sorting">Date of change</li>
+                        <li class="dropdown-menu_item__sorting">Author</li>
+                        <li class="dropdown-menu_item__sorting">Title</li>
+                    </ul>
+                </div>
             </div>
-            <div class="breadcrums">
-                <span>Physics</span>
-                <span><i class="fas fa-angle-right"></i></span>
-                <span></span>
+            <div class="content-box" id="content-box">
             </div>
-            <div class="result">
-                <h2 content="title" id="lib_title">
-                </h2>
+            <div class="pagination" id="pagination">
             </div>
         </div>
     </section>

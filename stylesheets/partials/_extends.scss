@@ -11,6 +11,7 @@ color: inherit;
 %inline-flex{
     display: flex;
     flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 %flex-wrap{
@@ -31,4 +32,12 @@ color: inherit;
     display: flex;
     justify-content: center;
 	flex-direction: column;
+}
+
+%dropdown-menu{
+
+}
+
+%dropdown-menu-item{
+    
 }

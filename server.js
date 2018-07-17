@@ -8,20 +8,9 @@ var file = new static.Server('.', {
 
 
 function accept(req, res) {
-
-  if (req.url == '/phones.json') {
-    // искусственная задержка для наглядности
-    setTimeout(function() {
-      file.serve(req, res);
-    }, 2000);
-  } else {
     file.serve(req, res);
-  }
-
 }
-
-
-// ------ запустить сервер -------
+// ------ run server -------
 
 if (!module.parent) {
   http.createServer(accept).listen(8080);

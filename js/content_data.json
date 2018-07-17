@@ -1,5 +1,25 @@
 [
     {
+        "rubrics":{
+            "robotics": "1",
+            "astronomy": "2",
+            "medicine": "3",
+            "biology": "4",
+            "physics": "5"
+        },
+        "types": {
+            "video": "1",
+            "text": "2",
+            "audio": "3"
+        },
+        "subtype":{
+            "lecture": "1",
+            "invention": "2",
+            "publication": "3", 
+            "book": "4"    
+        }
+    }, 
+    {
         "rubric": "1",
         "author": "Amond",
         "type": "1",

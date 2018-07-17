@@ -355,19 +355,167 @@ header{
     @extend %max-width;
     @extend %inline-flex;
     align-items: strech;
-    border: $brigth-borders;
-    height: 700px;
-}
-
-.lib_wrapper{
-    @extend %inline-flex;
-    flex-wrap: wrap;
+    border: $thin-grey-border;
+    height: 900px;
 }
 
 .left-menu{
-    width: $left-menu-wigth;
+    min-width: $left-menu-wigth;
     height: 100%;
     align-self: stretch;
+    background: $light;
+    #all{
+        margin: $header-margin/2 0;
+        border: none;
+    }
+    .left-menu-button{
+        @extend %left-menu-buttons;
+    }
+
+    .left-menu-button:hover{
+        cursor: pointer;
+    }
+    .filter-btn{
+        .fa-angle-down{
+            display: none;
+        }
+        .fa-angle-right{
+            display: inline;
+        }
+        .title-btn{
+            padding: 0 $primary-margin;
+        }
+    }
+
+    .open{
+        .fa-angle-down{
+            display: inline;
+        }
+        .fa-angle-right{
+            display: none;
+        }
+    }
+
+    .filter-btn:hover, .dropdown-left-item:hover{
+        background: $darker-transparent;
+        color: $very-light;
+    }
+
+    .filter-btn:active, .dropdown-left-item:active{
+        background: $dark-transparent;
+        color: $very-light;
+    }
+
+    .filter-item{
+        .dropdown-left-menu{
+            height: 0;
+            overflow: hidden;
+            transition: $transition-menu;
+        }
+    }
+    .dropdown-left-menu{
+        .dropdown-left-item{
+            @extend %left-menu-buttons-dropdown;
+        }
+    }
+}
+
+.result{
+    // @extend %inline-flex;
+    // flex-direction: column;
+    // flex-wrap: nowrap;
+    .result_header{
+        @extend %inline-flex;
+        justify-content: space-between;
+        align-items: stretch;
+        height: $primary-line-height;
+        border-bottom: $primary-border;
+        box-shadow: 0 0 5px $light;
+    }
+    .pagination{
+        @extend %inline-flex;
+        justify-content: center;
+        align-items: center;
+        div{
+            @extend %small-circle-button;
+            @extend %vertical-centering;
+            margin: $primary-margin;
+            font-size: 0.9*$base-font-size;
+            text-align: center;
+        }
+        div:hover{
+            border-color: $medium;
+            background: $darker-transparent;
+            color: $very-light;
+        }
+    }
+    .page{
+        @extend %flex-wrap;
+        align-content: space-between;
+        align-items: center;
+        padding: $primary-padding 0; 
+        .content-item{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            width: 300px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: $primary-radius $primary-radius 0 0;
+            box-shadow: 3px 3px 10px $light;
+            margin: $primary-margin*2 0;
+            a{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: nowrap;
+            height: 100%;
+            width: 100%;
+            }
+            video, img, audio{
+                max-width: 100%;
+                max-height: 80%;
+            }
+            .titles-content-wrapper{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-height: 20%;
+                width: 100%;
+                background: $grey-transparent;
+                text-align: right;
+                font-size: $base-font-size;
+                flex-grow: 2;
+                p{
+                    height: 20%;
+                    min-height: 20px;
+                    width: 100%;
+                    background: $bright-light;
+                }
+                h3, p{
+                    padding: $primary-margin;
+                }
+                h3{
+                    text-align: center;
+                }
+            }
+
+            audio ~ .titles-content-wrapper > p{
+                order: 1;
+            }
+            audio{
+                order: 1;
+            }
+        }
+        .content-item:hover{
+            background:$darker-transparent;
+            h3{
+                color: $very-light;
+            }
+        }
+    }
+
 }
 
 .sorting{
