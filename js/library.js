@@ -5,8 +5,6 @@
 function Content(path){
     this._path = path;
     this._allData = [];
-    this._dataKeys = {};
-    this.crums = [];
 }
 
 /* 
@@ -27,48 +25,32 @@ Content.prototype.uploadData = function(){
     } else {
         var input = JSON.parse(xhr.responseText);
             if(input.length > 0){
-                self._dataKeys = input[0];
-                self._allData = input.slice(1);
-                var displayer = new Displayer(self._allData, 9);
-                displayer.displayContent(self._allData);
+                self._allData = input;
+                document.getElementById('all').querySelector('.count').innerHTML = '(' + self._allData.length + ')';
+                displayContent(self._allData);
             }
         }
     }
 }
 
-Content.prototype.addBreadCrum = function(title){
-    var box = document.getElementById('breadcrums');
-    var crumArrow = box.querySelector('.breadcrums-arrow');
-    var newCrum = {
-        id: 'crum' + (this.crums.length + 1),
-        body: title
-    }
-    this.crums.push(newCrum);
-    var newCrumSpan = document.createElement('span');
-    newCrumSpan.classList.add('breadcrum-item');
-    newCrumSpan.id = newCrum.id;
-    newCrumSpan.innerHTML = newCrum.body;
-    var newArrow = crumArrow.cloneNode(true);
-    box.appendChild(newArrow);
-    box.appendChild(newCrumSpan);
-}
-
 Content.prototype.filter = function(event){
-    this.addBreadCrum(event.target.id);
     var currentPull = getDisplayedContent();
     currentPull.map = [].map;
     currentPull = currentPull.map(function(item){
         return item.id;
     });
     currentPull = this.getItemsByIds(currentPull);
-    // (!filterParams) ? filterParams = event.target.id : filterParams = filterParams;
-    var filterKeyValue = this.getKey(this._dataKeys, event.target.id);
-    filterKeyValue = {key: filterKeyValue.type, value: filterKeyValue[event.target.id]};
+    var filterKeyValue = {
+        key: event.target.closest('li.filter-head').id,
+        value: event.target.id
+    }
+    // var filterKeyValue = this.getKey(this._dataKeys, event.target.id);
+   // filterKeyValue = {key: filterKeyValue.type, value: filterKeyValue[event.target.id]};
     var targetPull = currentPull.filter(function(item){
             return item[filterKeyValue.key] == filterKeyValue.value;
         });
-    var displayer = new Displayer(targetPull, 9);
-    displayer.displayContent(targetPull);
+    currentBreadCrum.addBreadcrum(event.target.id, targetPull);
+    displayContent(targetPull);
 }
 
 /*
@@ -78,7 +60,6 @@ Content.prototype.filter = function(event){
 Content.prototype.getItemsByIds = function(ids){
     var result = this._allData.filter(function(item){
         for(var i = 0; i < ids.length; i++){
-            console.log(item.id == ids[i]);
             if(item.id == ids[i]){
                 i = 0;
                 return true;
@@ -99,6 +80,207 @@ Content.prototype.getKey = function keyOfValue(obj, keyValue){
     }
 }
 
+function Breadcrums (element){
+    this._crums = [];
+    this._box = document.getElementById(element.box);
+    this._crumArrow = this._box.querySelector(element.arrow);
+}
+
+Breadcrums.prototype.addBreadcrum = function(title, filteredArray){
+    var newCrum = {
+        id: 'crum' + (this._crums.length + 1),
+        body: title, 
+        filteredArray: filteredArray
+    }
+    this._crums.push(newCrum);
+    this.displaySelf();
+}
+
+Breadcrums.prototype.moveBack = function(event){
+    for(var i = 0; i < this._crums.length; i++){
+        if(!(this._crums[i].id == event.target.id)) continue;
+        this._crums = this._crums.slice(0, i+1);
+        displayContent(this._crums[i].filteredArray);
+        this.displaySelf();
+        return;
+    }
+    this._crums = [];
+    this.displaySelf();
+}
+
+Breadcrums.prototype.displaySelf = function(){
+    var self = this;
+    deleteAllChildrens(self._box.children.length - 1, self._box);
+    self._crums.forEach(function(item){
+        var newCrumSpan = document.createElement('span');
+        var newCrumArrow = self._crumArrow.cloneNode(true);
+        newCrumSpan.classList.add('breadcrum-item');
+        newCrumSpan.id = item.id;
+        newCrumSpan.innerHTML = item.body;
+        newCrumSpan.addEventListener('click', function(){
+            self.moveBack(event);
+        });
+        self._box.appendChild(newCrumSpan);
+        self._box.appendChild(newCrumArrow);
+    })
+}
+
+function displayContent(itemsArray){
+    var j;
+    var nav = document.getElementById('pagination');
+    var contentBox = document.getElementById('content-box');
+    deleteAllChildrens(nav.children.length, [nav, contentBox]);
+    var itemsOnPage = (function(){
+        var width = contentBox.parentElement.offsetWidth;
+        rowCount = Math.floor(width/350);
+        return rowCount*3;
+    })();
+    var numOfPages = Math.ceil(itemsArray.length/itemsOnPage);
+    for(var i = 0; i < numOfPages; i++){
+        var newPage = document.createElement('div');
+        newPage.id = 'page' + (i + 1);
+        newPage.classList.add('page');
+        contentBox.appendChild(newPage);
+        (itemsOnPage*(i+1) > itemsArray.length) ? j = -1 : j =  itemsOnPage*(i+1);
+        fillPage({
+            pageId: i+1,
+            content: itemsArray.slice(itemsOnPage*i, j)
+        });
+        var navItem = document.createElement('div');
+        navItem.id = i;
+        navItem.innerHTML = i+1;
+        navItem.addEventListener('click', showPage);
+        nav.appendChild(navItem);
+    }
+
+    function fillPage(obj){
+        obj.content.forEach(function(item, i, arr){
+            var newCont = document.createElement('div');
+            var newContTitle = document.createElement('h3');
+            var newContAuthor = document.createElement('p');
+            var wrapper = document.createElement('div');
+            newCont.classList.add('content-item');
+            newCont.id = item.id;
+            newContTitle.innerHTML = item.theme +'-'+ item.rubric;
+            newContAuthor.innerHTML = item.author;
+            wrapper.classList.add('titles-content-wrapper');
+            wrapper.appendChild(newContAuthor);
+            wrapper.appendChild(newContTitle);
+            switch(item.type){
+                case 'video':{
+                    newCont.appendChild(displayVideo(item));
+                    newCont.appendChild(wrapper);
+                    break;
+                };
+                case 'text':{
+                    var newContA = document.createElement('a');
+                    newContA.href = item.url;
+                    newContA.appendChild(displayText(item));
+                    newContA.appendChild(wrapper);
+                    newCont.appendChild(newContA);
+                    break;
+                };
+                case 'audio': {
+                    newCont.appendChild(displayAudio(item));
+                    newCont.appendChild(wrapper);
+                    break;
+                }
+            }
+            document.getElementById('page' + obj.pageId).appendChild(newCont);
+        });
+        
+    }
+        function displayAudio (item){
+        var newCont = document.createElement('audio');
+        var src = document.createElement('source');
+        src.src = item.url;
+        newCont.setAttribute('controls', 'true');
+        newCont.appendChild(src);
+        return newCont;
+    }
+    
+    function displayVideo(item){
+        var newCont = document.createElement('video');
+        var src = document.createElement('source');
+        src.src = item.url;
+        newCont.setAttribute('controls', 'true');
+        newCont.appendChild(src);
+        return newCont;
+    }
+    
+    function displayText(item){
+        var newContImg = document.createElement('img');
+        newContImg.src = item.imgurl;
+        return newContImg;
+    }
+    displayFilters(itemsArray);
+    showPage(0);
+}
+
+function displayFilters(items){
+    var filters = document.getElementById('filters');
+    var filterRubrics = filters.getElementsByClassName('title-btn');
+    filterRubrics.map = [].map;
+    filterRubrics = filterRubrics.map(function(item){
+        return item.closest('li');
+    });
+    var forCopy = filters.querySelector('.filter-item');
+    for(var i = 0; i < filterRubrics.length; i++){
+        var filtersItems = filterRubrics[i].getElementsByClassName('filter-item');
+        filtersItems = (function(){
+            var result = [];
+            for(var i = 0; i<filtersItems.length; i++){
+                result.push(filtersItems[i]);
+            } 
+            return result;
+        })();
+        filtersItems.forEach(function(item){
+            item.count = 0;
+        });
+        var filt;
+        items.forEach(function(item, j){
+            filt = filterRubrics[i].id;
+            var marker = false;
+            if(item.hasOwnProperty(filt))
+            {
+                filtersItems.forEach(function(itemF, k){
+                    if(item[filt] == itemF.id){
+                        marker = true;
+                        itemF.count++;
+                    }
+                })
+                if(marker) return;
+                var newLi = forCopy.cloneNode(true);
+                newLi.id = item[filt];
+                newLi.innerHTML = item[filt];
+                newLi.count = 1;
+                newLi.addEventListener('click', function(){
+                    contData.filter(event);
+                });
+                filtersItems.push = [].push;
+                filtersItems.push(newLi);
+                filterRubrics[i].querySelector('.dropdown-left-menu').appendChild(newLi);
+            }
+        });
+        for(var j = 0; j<filtersItems.length; j++){
+            if( filtersItems[j].count > 0){
+                filtersItems[j].style.display = 'inline-block';
+                if(filtersItems[j].querySelector('.count') == null){
+                    var newChild = document.createElement('span');
+                    newChild.classList.add('count');
+                    filtersItems[j].appendChild(newChild);
+                }
+                filtersItems[j].querySelector('.count').innerHTML = '(' + filtersItems[j].count + ')';
+            }
+            else{
+                filtersItems[j].style.display = 'none';
+            }
+        }
+    }
+    
+}
+
+
 Content.prototype.sort = function(sortParam){
 
 }
@@ -109,103 +291,20 @@ function getDisplayedContent(){
     return displayedContent;
 }
 
-function Displayer(contentArr, itemsOnPage){
-    this._contentBox = document.getElementById('content-box');
-    this._itemsOnPage = itemsOnPage;
-    this._numOfPages = Math.ceil(contentArr.length/itemsOnPage);
-    this._targetContent = contentArr;
-}
-
-Displayer.prototype.displayContent = function(){
-
-    var j;
-    var nav = document.getElementById('pagination');
-    var i = nav.children.length;
-    for( i ; i > 0; i--){
-        this._contentBox.removeChild(this._contentBox.children[i-1]);
-        nav.removeChild(nav.children[i-1]);
-    }
-    for(var i = 0; i < this._numOfPages; i++){
-        var newPage = document.createElement('div');
-        newPage.id = 'page' + (i + 1);
-        newPage.classList.add('page');
-        this._contentBox.appendChild(newPage);
-        (this._itemsOnPage*(i+1) > this._targetContent.length) ? j = -1 : j =  this._itemsOnPage*(i+1);
-        this.fillPage({
-            pageId: i+1,
-            content: this._targetContent.slice(9*i, j)
-        });
-        var navItem = document.createElement('div');
-        var self = this;
-        navItem.id = i;
-        navItem.innerHTML = i+1;
-        navItem.addEventListener('click', showPage);
-        nav.appendChild(navItem);
-    }
-    showPage(0);
-}
-
-Displayer.prototype.fillPage = function(obj){
-    var self = this;
-    obj.content.forEach(function(item, i, arr){
-        var newCont = document.createElement('div');
-        var newContTitle = document.createElement('h3');
-        var newContAuthor = document.createElement('p');
-        var wrapper = document.createElement('div');
-        newCont.classList.add('content-item');
-        newCont.id = item.id;
-        newContTitle.innerHTML = item.theme + item.rubric;
-        newContAuthor.innerHTML = item.author;
-        wrapper.classList.add('titles-content-wrapper');
-        wrapper.appendChild(newContAuthor);
-        wrapper.appendChild(newContTitle);
-        switch(item.type){
-            case '1':{
-                newCont.appendChild(self.displayVideo(item));
-                newCont.appendChild(wrapper);
-                break;
-            };
-            case '2':{
-                var newContA = document.createElement('a');
-                newContA.href = item.url;
-                newContA.appendChild(self.displayText(item));
-                newContA.appendChild(wrapper);
-                newCont.appendChild(newContA);
-                break;
-            };
-            case '3': {
-                newCont.appendChild(self.displayAudio(item));
-                newCont.appendChild(wrapper);
-                break;
+function deleteAllChildrens(i, items){
+    if(items instanceof Array){
+        for(i; i > 0; i--)
+        {
+            for(var j = 0; j< items.length; j++){
+                items[j].removeChild(items[j].children[i-1]);
             }
         }
-        document.getElementById('page' + obj.pageId).appendChild(newCont);
-    });
-    
-}
-
-Displayer.prototype.displayAudio = function(item){
-    var newCont = document.createElement('audio');
-    var src = document.createElement('source');
-    src.src = item.url;
-    newCont.setAttribute('controls', 'true');
-    newCont.appendChild(src);
-    return newCont;
-}
-
-Displayer.prototype.displayVideo = function(item){
-    var newCont = document.createElement('video');
-    var src = document.createElement('source');
-    src.src = item.url;
-    newCont.setAttribute('controls', 'true');
-    newCont.appendChild(src);
-    return newCont;
-}
-
-Displayer.prototype.displayText = function(item){
-    var newContImg = document.createElement('img');
-    newContImg.src = item.imgurl;
-    return newContImg;
+        return;
+    }
+    for(i; i > 0; i--)
+    {
+        items.removeChild(items.children[i-1]);
+    }
 }
 
 function showPage (id){
@@ -223,20 +322,41 @@ function showPage (id){
     }
 }
 
-function parseFilter(inputFilter){
-    var parsedFilter = [];
-    return parsedFilter;
-}
+// function parseFilter(inputFilter){
+//     var parsedFilter = [];
+//     return parsedFilter;
+// }
+
+
+//---------------------------------------------
 
 var contData = new Content('content_data.json');
+var currentBreadCrum = new Breadcrums({
+    box: 'breadcrums',
+    arrow: '.breadcrums-arrow'
+});
+
 contData.uploadData();
-var filter = document.getElementById('filters');
-var g = contData.filter.bind(contData);
-filter = filter.getElementsByClassName('filter-item');
-for(var i = 0; i < filter.length; i++){
-    filter[i].addEventListener('click', function(){
-        contData.filter(event);
-    });
+addEvListFilters();
+function addEvListFilters(){
+    var filter = document.getElementById('filters');
+    filter = filter.getElementsByClassName('filter-item');
+    for(var i = 0; i < filter.length; i++){
+        filter[i].addEventListener('click', function(){
+            contData.filter(event);
+        });
+    }
 }
 
+document.getElementById('all').addEventListener('click', function(){
+    displayContent(contData._allData);
+    currentBreadCrum.moveBack(event);
+});
+
+// (function(){
+//     window.onresize = function(e){
+//         var currentPull = getDisplayedContent();
+//         displayContent(contData.getItemsByIds(currentPull));
+//     }
+// })();
 

@@ -59,8 +59,16 @@ Accordion.prototype.hide = function(elem){
 };
 
 Accordion.prototype.show = function(elem){
-    elem.style.height = elem.firstElementChild.offsetHeight * elem.children.length + 'px';
-    console.log(elem.height);
+    elem.children.filter = [].filter;
+    var displayedChilds = elem.children.filter(function(item){
+        if(item.style.display !='none') return true;
+    })
+    if(displayedChilds.length > 0){
+        elem.style.height = displayedChilds[0].offsetHeight * displayedChilds.length + 'px';
+    }
+    else{
+        elem.style.height = 0;
+    }
 };
 
 function PropertyError(property) {

@@ -6,6 +6,7 @@
 @import "fontawesome/fontawesome.scss";
 @import "fontawesome/fa-solid.scss";
 
+
 body{
     font-family: $font-stack;
     color: $primary-color;
@@ -348,11 +349,14 @@ Styles for library-pages
     @extend %inline-flex;
     align-items: strech;
     max-height: 900px;
+    height: 120vh;
+    width: 100%;
 }
 
 //Left-menu styles
 .left-menu{
     text-transform: uppercase;
+    max-width: 20vw;
     min-width: $left-menu-wigth;
     height: 100%;
     position: relative;
@@ -360,6 +364,7 @@ Styles for library-pages
     align-self: stretch;
     border-right: $primary-border;
     box-shadow: 0 0 10px $light;
+    overflow: scroll;
     #all{
         margin: $header-margin/2 0;
         border: none;
@@ -412,6 +417,8 @@ Styles for library-pages
     Styles for block of content
 */
 .result{
+    width: 100%;
+    overflow: scroll;
     .result_header{
         @extend %inline-flex;
         justify-content: space-between;
@@ -433,12 +440,14 @@ Styles for library-pages
     .content-box{
         max-width: 90%;
         margin: 0 auto;
+        
     }
     .page{
         @extend %flex-wrap;
         align-content: space-between;
         align-items: center;
         padding: $primary-padding 0; 
+        
         .content-item{
             display: flex;
             flex-direction: column;
@@ -523,3 +532,5 @@ Styles for library-pages
 .hidden{
     display: none;
 }
+
+@import "partials/_media.scss";

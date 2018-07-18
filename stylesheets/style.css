@@ -41,7 +41,7 @@
 .left-menu .dropdown-left-menu .dropdown-left-item {
   padding-left: 25px;
   border-bottom: 1px #c0c0c0 solid;
-  min-height: 17.5px;
+  min-height: 23.3333333333px;
 }
 
 a:hover, a {
@@ -5091,10 +5091,13 @@ Styles for library-pages
 .content-library {
   align-items: strech;
   max-height: 900px;
+  height: 120vh;
+  width: 100%;
 }
 
 .left-menu {
   text-transform: uppercase;
+  max-width: 20vw;
   min-width: 200px;
   height: 100%;
   position: relative;
@@ -5102,6 +5105,7 @@ Styles for library-pages
   align-self: stretch;
   border-right: 3px #c0c0c0 solid;
   box-shadow: 0 0 10px #c0c0c0;
+  overflow: scroll;
 }
 .left-menu #all {
   margin: 25px 0;
@@ -5133,6 +5137,10 @@ Styles for library-pages
 /*
     Styles for block of content
 */
+.result {
+  width: 100%;
+  overflow: scroll;
+}
 .result .result_header {
   justify-content: space-between;
   align-items: center;
@@ -5232,6 +5240,17 @@ Styles for library-pages
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 786px) {
+  body {
+    font-size: 12px;
+  }
+}
+@media (max-width: 520px) {
+  body {
+    font-size: 12px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

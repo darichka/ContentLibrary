@@ -46,7 +46,8 @@
 
 %left-menu-buttons-dropdown{
     @extend %left-menu-buttons;
+    
     padding-left: $primary-padding + $left-sub-menu-margin;
     border-bottom: $thin-grey-border;
-    min-height: $left-menu-btn-height/2;
+    min-height: $left-menu-btn-height/1.5;
 }
