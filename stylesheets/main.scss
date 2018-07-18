@@ -45,65 +45,59 @@ header{
 }
 
 .menu{
-    font-size: 1.5em;
-    justify-content: space-between;
-    .menu-item, .dropdown-menu_item{
+    font-size: 1.5*$base-font-size;
+    text-transform: uppercase;
+    .dropdown-menu{
+        align-self: flex-start;
+        top: $menu-item-height;
+        @extend %dropdown-menu;
+    }
+    .menu-item{
         position: relative;
         display: flex;
         flex-direction: row;
         height: $menu-item-height;
         margin-left: $primary-margin;
-        .menu_border{
-            width : $thick-border;
-            background: $bright;
-            border-radius: $primary-radius;
-            height: 100%;
-            transition: $transition-menu;
-        }
+        border-right: $main-menu-border;
         a{
             @extend %vertical-centering;
             height: 100%;
-            padding: 0 2*$primary-padding;
+            padding: 0 $primary-padding;
             transition: $transition-menu;
         }
-
         a:hover, a:active{
-        background: $darker-transparent;
-        border-color: $medium;
-        color: $very-light;
-        border-radius: $primary-radius;
+           @extend %menu-item-hover;
         }
     }
     .dropdown-menu_item{
+        display: flex;
         flex-direction: column;
+        position: relative;
         width: $dropdown-menu-width;
-       
+        height: $menu-item-height;
+        border-bottom: $main-menu-border;
         color: $very-light;
+        font-size: 0.8*$base-font-size;
         a{
-            background: $dark-transparent;
+            background: $darker-transparent;
         }
-
-        .menu_border{
-            width: 100%;
-            height: $thick-border;
-        }
+        a:hover, a:active{
+            @extend %dropdown-menu-item-hover;
+         }
     }
-
+    .dropdown-header:hover{
+        @extend %menu-item-hover;
+    }
     .menu-item:hover > .dropdown-menu{
         display: inline-block;
     }
 }
-.menu-item:hover > .menu_border, .dropdown-menu_item:hover > .menu_border{
-    background: $primary-color;
+.menu :last-child{
+    border:none;
 }
-
-
-.dropdown-menu{
-    align-self: flex-start;
-    top: $menu-item-height;
-    display: none;
-    position: absolute;
-    z-index: 10;
+.dropdown-menu :last-child{
+    border:none;
+    border-radius: 0 0 $primary-radius $primary-radius;
 }
 
 .search-icon{
@@ -174,9 +168,6 @@ header{
     height: 100%;
     overflow: hidden;
     position: relative;
-    // border-radius: $big-border-radius;
-    // border: $light solid $primary-border;
-
     figure{
         text-align: center;
         position: absolute;
@@ -349,21 +340,26 @@ header{
     height: 400px;    
 }
 
-// styles for library-pages
+/*
+Styles for library-pages
+*/
 
 .content-library{
-    @extend %max-width;
     @extend %inline-flex;
     align-items: strech;
-    border: $thin-grey-border;
-    height: 900px;
+    max-height: 900px;
 }
 
+//Left-menu styles
 .left-menu{
+    text-transform: uppercase;
     min-width: $left-menu-wigth;
     height: 100%;
+    position: relative;
+    top: 0;
     align-self: stretch;
-    background: $light;
+    border-right: $primary-border;
+    box-shadow: 0 0 10px $light;
     #all{
         margin: $header-margin/2 0;
         border: none;
@@ -396,58 +392,47 @@ header{
         }
     }
 
-    .filter-btn:hover, .dropdown-left-item:hover{
-        background: $darker-transparent;
-        color: $very-light;
+    .filter-btn:active, .filter-btn:hover{
+        @extend %menu-item-hover;
+    } 
+    .dropdown-left-item:active, .dropdown-left-item:hover{
+        @extend %dropdown-menu-item-hover;
     }
 
-    .filter-btn:active, .dropdown-left-item:active{
-        background: $dark-transparent;
-        color: $very-light;
-    }
-
-    .filter-item{
-        .dropdown-left-menu{
-            height: 0;
-            overflow: hidden;
-            transition: $transition-menu;
-        }
-    }
     .dropdown-left-menu{
+        height: 0;
+        overflow: hidden;
+        transition: $transition-menu;
         .dropdown-left-item{
             @extend %left-menu-buttons-dropdown;
         }
     }
 }
-
+/*
+    Styles for block of content
+*/
 .result{
-    // @extend %inline-flex;
-    // flex-direction: column;
-    // flex-wrap: nowrap;
     .result_header{
         @extend %inline-flex;
         justify-content: space-between;
-        align-items: stretch;
+        align-items: center;
         height: $primary-line-height;
         border-bottom: $primary-border;
         box-shadow: 0 0 5px $light;
+        padding: 0 $primary-padding;
+        text-transform: uppercase;
     }
-    .pagination{
-        @extend %inline-flex;
-        justify-content: center;
-        align-items: center;
-        div{
-            @extend %small-circle-button;
-            @extend %vertical-centering;
-            margin: $primary-margin;
-            font-size: 0.9*$base-font-size;
-            text-align: center;
+    .breadcrums{
+        .breadcrum-item:hover{
+            cursor: pointer;
+            color: $medium;
         }
-        div:hover{
-            border-color: $medium;
-            background: $darker-transparent;
-            color: $very-light;
-        }
+    }
+    .sorting{
+    }
+    .content-box{
+        max-width: 90%;
+        margin: 0 auto;
     }
     .page{
         @extend %flex-wrap;
@@ -500,7 +485,6 @@ header{
                     text-align: center;
                 }
             }
-
             audio ~ .titles-content-wrapper > p{
                 order: 1;
             }
@@ -515,14 +499,25 @@ header{
             }
         }
     }
+    .pagination{
+        @extend %inline-flex;
+        justify-content: center;
+        align-items: center;
+        div{
+            @extend %small-circle-button;
+            @extend %vertical-centering;
+            margin: $primary-margin;
+            font-size: 0.9*$base-font-size;
+            text-align: center;
+            box-shadow: 0 0 5px $light;
+        }
+        div:hover{
+            border-color: $medium;
+            background: $darker-transparent;
+            color: $very-light;
+        }
+    }
 
-}
-
-.sorting{
-    height: 60px;
-}
-.breadcrums{
-    height: 30px;
 }
 
 .hidden{

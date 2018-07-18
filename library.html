@@ -28,32 +28,17 @@
                             <a href="index.html">Main</a>
                         </li>
                         <li class="dropdown-header menu-item">
-                            <div class="menu_border"></div>
                             <a href="#">Library</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-menu_item">
-                                    <a href="library.html">Lectures</a>
+                                    <a href="library.html">Content Library</a>
                                 </li>
                                 <li class="dropdown-menu_item">
-                                    <div class="menu_border"></div>
-                                    <a href="library.html">News</a>
-                                </li>
-                                <li class="dropdown-menu_item">
-                                    <div class="menu_border"></div>
-                                    <a href="library.html">Publications</a>
-                                </li>
-                                <li class="dropdown-menu_item">
-                                    <div class="menu_border"></div>
-                                    <a href="library.html">Latest inventions</a>
+                                    <a href="library.html">Galery</a>
                                 </li>
                             </ul>	
                         </li>
                         <li class="menu-item">
-                            <div class="menu_border"></div>
-                            <a href="about.html">About us</a>
-                        </li>
-                        <li class="menu-item">
-                            <div class="menu_border"></div>
                             <a href="contacts.html">Contacts</a>
                         </li>
                     </ul>
@@ -75,33 +60,33 @@
                 <span>All</span>
                 <span class="count"></span>
             </div>
-            <ul id="left-menu-list">
-                <li class="filter-item">
+            <ul id="filters">
+                <li class="filter-btn">
                     <div class="filter-btn left-menu-button">
                         <span>
                             <i class="fas fa-angle-down"></i>
                             <i class="fas fa-angle-right"></i>
                         </span>
-                        <span class="title-btn">Search by rubric</span>
+                        <span class="title-btn">Filter by rubric</span>
                     </div>
                     <ul class="dropdown-left-menu">
-                        <li class="dropdown-left-item left-menu-button">
+                        <li class="dropdown-left-item left-menu-button filter-item" id = "robotics">
                             Robotics
                             <span class="count"></span>
                         </li>
-                        <li class="dropdown-left-item left-menu-button">
+                        <li class="dropdown-left-item left-menu-button filter-item" id = "astronomy">
                             Astronomy
                             <span class="count"></span>
                         </li>
-                        <li class="dropdown-left-item left-menu-button">
+                        <li class="dropdown-left-item left-menu-button filter-item" id="medicine">
                             Medicine
                             <span class="count"></span>
                         </li>
-                        <li class="dropdown-left-item left-menu-button">
+                        <li class="dropdown-left-item left-menu-button filter-item" id="biology">
                             Biology
                             <span class="count"></span>
                         </li>
-                        <li class="dropdown-left-item left-menu-button">
+                        <li class="dropdown-left-item left-menu-button filter-item" id="physics">
                             Physics
                             <span class="count"></span>
                         </li>
@@ -113,7 +98,7 @@
                             <i class="fas fa-angle-down"></i>
                             <i class="fas fa-angle-right"></i>
                         </span>
-                        <span class="title-btn">Search by topic</span>
+                        <span class="title-btn">Filter by topic</span>
                     </div>
                 </li>
                 <li class="filter-btn">
@@ -122,7 +107,7 @@
                             <i class="fas fa-angle-down"></i>
                             <i class="fas fa-angle-right"></i>
                         </span>
-                        <span class="title-btn">Search by author</span>
+                        <span class="title-btn">Filter by author</span>
                     </div>
                 </li>
                 <li class="filter-btn">
@@ -131,17 +116,20 @@
                             <i class="fas fa-angle-down"></i>
                             <i class="fas fa-angle-right"></i>
                         </span>
-                        <span class="title-btn">Search by publishing houses</span>
+                        <span class="title-btn">Filter by publishing houses</span>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="result">
             <div class="result_header">
-                <div class="breadcrums">
-                    <span></span>
-                    <span><i class="fas fa-angle-right"></i></span>
-                    <span></span>
+                <div class="breadcrums" id="breadcrums">
+                    <span class="breadcrums-arrow">
+                        <i class="fas fa-angle-right"></i>
+                    </span>
+                    <span class="breadcrum-item" id="crum0">
+                        All
+                    </span>
                 </div>
                 <div class="sorting">
                     <p>
@@ -160,7 +148,44 @@
             </div>
         </div>
     </section>
-    <footer>
-        <script src="js/common.js"></script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="socials">
+                <span class="socials_item">
+                    <a href="" class="social_link">
+                        <img src="img/socials/facebook.png" alt=""/>
+                    </a>
+                </span>
+                <span class="socials_item">
+                    <a href="" class="social_link">
+                        <img src="img/socials/instagram.png" alt="instagram"/>
+                    </a>
+                </span>
+                <span class="socials_item">
+                    <a href="" class="social_link">
+                        <img src="img/socials/pinterest.png" alt="pinterest">
+                    </a>
+                </span>
+                <span class="socials_item">
+                    <a href="" class="social_link">
+                        <img src="img/socials/twitter.png" alt="twitter">
+                    </a>
+                </span>
+            </div>
+            <div class="autor">
+                <p>&copy; Created by Daria Katiushchenko</p>
+            </div>
+            <figure class="logo footer_logo">
+                <!-- <img src="img\logo.png" alt="Logo"/> -->
+                <h1>
+                    Storehouse
+                </h1>
+                <h3>
+                    Everething about science
+                </h3>
+            </figure>
+        </div>
+        <script src="js/library.js" async defer></script>
+        <script src="js/common.js" async defer></script>
     </footer>
 </body>

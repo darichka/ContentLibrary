@@ -1,18 +1,18 @@
 [
     {
-        "rubrics":{
+        "rubric":{
             "robotics": "1",
             "astronomy": "2",
             "medicine": "3",
             "biology": "4",
             "physics": "5"
         },
-        "types": {
+        "type": {
             "video": "1",
             "text": "2",
             "audio": "3"
         },
-        "subtype":{
+        "subType":{
             "lecture": "1",
             "invention": "2",
             "publication": "3", 
@@ -107,7 +107,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 3,
+        "id": 9,
         "rubric": "1",
         "author": "Amond",
         "type": "3",
@@ -118,7 +118,7 @@
         "imgurl": ""
     },
     {
-        "id": 8,
+        "id": 10,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -129,7 +129,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 8,
+        "id": 11,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -140,7 +140,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 9,
+        "id": 12,
         "rubric": "2",
         "author": "Munh",
         "type": "2",
@@ -151,7 +151,7 @@
         "imgurl": "/img/data/astronomy/1.jpg"
     },
     {
-        "id": 1,
+        "id": 13,
         "rubric": "1",
         "author": "Amond",
         "type": "1",
@@ -162,7 +162,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 2,
+        "id": 14,
         "rubric": "1",
         "author": "Amond",
         "type": "2",
@@ -173,7 +173,7 @@
         "imgurl": "/img/data/biology/1.jpg"
     }, 
     {
-        "id": 3,
+        "id": 15,
         "rubric": "1",
         "author": "Amond",
         "type": "3",
@@ -184,7 +184,7 @@
         "imgurl": ""
     },  
     {
-        "id": 4,
+        "id": 16,
         "rubric": "1",
         "author": "Amond",
         "type": "2",
@@ -195,7 +195,7 @@
         "imgurl": "/img/data/biology/1.jpg"
     }, 
     {
-        "id": 5,
+        "id": 17,
         "rubric": "1",
         "author": "Aldan",
         "type": "2",
@@ -206,7 +206,7 @@
         "imgurl": "/img/data/biology/1.jpg"
     }, 
     {
-        "id": 6,
+        "id": 18,
         "rubric": "1",
         "author": "Aldan",
         "type": "1",
@@ -216,7 +216,7 @@
         "url": "/data/astronomy1.mp4",
         "imgurl": ""
     }, 
-    {   "id": 7,
+    {   "id": 19,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -227,7 +227,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 8,
+        "id": 20,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -238,7 +238,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 9,
+        "id": 21,
         "rubric": "2",
         "author": "Munh",
         "type": "2",
@@ -249,7 +249,7 @@
         "imgurl": "/img/data/astronomy/1.jpg"
     }, 
     {
-        "id": 6,
+        "id": 22,
         "rubric": "1",
         "author": "Aldan",
         "type": "1",
@@ -259,7 +259,7 @@
         "url": "/data/astronomy1.mp4",
         "imgurl": ""
     }, 
-    {   "id": 7,
+    {   "id": 23,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -270,7 +270,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 8,
+        "id": 24,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -281,7 +281,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 9,
+        "id": 25,
         "rubric": "2",
         "author": "Munh",
         "type": "2",
@@ -291,7 +291,7 @@
         "url": "",
         "imgurl": "/img/data/astronomy/1.jpg"
     }, 
-    {   "id": 7,
+    {   "id": 26,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -302,7 +302,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 8,
+        "id": 27,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -313,7 +313,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 9,
+        "id": 28,
         "rubric": "2",
         "author": "Munh",
         "type": "2",
@@ -324,7 +324,7 @@
         "imgurl": "/img/data/astronomy/1.jpg"
     }, 
     {
-        "id": 6,
+        "id": 29,
         "rubric": "1",
         "author": "Aldan",
         "type": "1",
@@ -334,7 +334,7 @@
         "url": "/data/astronomy1.mp4",
         "imgurl": ""
     }, 
-    {   "id": 7,
+    {   "id": 30,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -345,7 +345,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 8,
+        "id": 31,
         "rubric": "2",
         "author": "Markush",
         "type": "1",
@@ -356,7 +356,7 @@
         "imgurl": ""
     }, 
     {
-        "id": 9,
+        "id": 32,
         "rubric": "2",
         "author": "Munh",
         "type": "2",

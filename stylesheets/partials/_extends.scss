@@ -35,9 +35,20 @@ color: inherit;
 }
 
 %dropdown-menu{
-
+    display: none;
+    position: absolute;
+    z-index: 10;
 }
 
 %dropdown-menu-item{
     
+}
+
+%menu-item-hover{
+    background: $grey-transparent;
+}
+
+%dropdown-menu-item-hover{
+    background: $dark-transparent;
+    color: $very-light;
 }
